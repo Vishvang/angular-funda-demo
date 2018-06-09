@@ -1,5 +1,11 @@
-<ul class="nav nav-tabs">
-  <li role="presentation"><a href="#">All</a></li>
-  <li role="presentation"><a href="#">Light</a></li>
-  <li role="presentation"><a href="#">Dark</a></li>
-</ul>
+<div>
+  <ul class="nav nav-tabs">
+    <li role="presentation" [ngClass]="{'active': choosenList==='all' }">
+      <a (click)="onChoose('all')" style="cursor: pointer;">All</a></li>
+    <li role="presentation" [ngClass]="{'active': choosenList==='light' }" >
+      <a (click)="onChoose('light')" style="cursor: pointer;">Light</a></li>
+    <li role="presentation" [ngClass]="{'active': choosenList==='dark' }">
+      <a (click)="onChoose('dark')" style="cursor: pointer;">Dark</a></li>
+  </ul>
+  <app-list [listCharacters]="getCharacters()"></app-list>
+</div>
