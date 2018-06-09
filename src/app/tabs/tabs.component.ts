@@ -30,4 +30,11 @@ export class TabsComponent implements OnInit {
       return char.side === this.choosenList;
     });
   }
+
+  onSideChoosen(charInfo) {
+    const pos = this.allCharacter.findIndex((char) => {
+      return char.name === charInfo.name;
+    });
+    this.allCharacter[pos].side = charInfo.side;
+  }
 }
