@@ -6,10 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tabs.component.css']
 })
 export class TabsComponent implements OnInit {
-  allCharacter = [
-    { name: 'David', side: ''},
-    { name: 'Mac', side: ''}
-  ];
+  allCharacter = [];
 
   choosenList = 'all';
 
@@ -22,14 +19,7 @@ export class TabsComponent implements OnInit {
     this.choosenList = selectSide;
   }
 
-  getCharacters() {
-    if (this.choosenList === 'all') {
-      return this.allCharacter;
-    }
-    return this.allCharacter.filter((char) => {
-      return char.side === this.choosenList;
-    });
-  }
+  getCharacters() {}
 
   onSideChoosen(charInfo) {
     const pos = this.allCharacter.findIndex((char) => {
