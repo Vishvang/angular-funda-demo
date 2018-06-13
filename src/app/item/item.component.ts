@@ -10,7 +10,11 @@ export class ItemComponent implements OnInit {
   @Input() itemCharacter;
   // @Output() sideAssign = new EventEmitter<{name: string, side: string}>();
 
-  constructor() { }
+  movieChar: MovieCharacterService;
+
+  constructor(movieCharcter: MovieCharacterService) {
+    this.movieChar = movieCharcter;
+  }
 
   ngOnInit() {
   }
@@ -18,7 +22,8 @@ export class ItemComponent implements OnInit {
   onAssign(side) {
     // this.itemCharacter.side = side;
     // this.sideAssign.emit({name: this.itemCharacter.name, side: side});
-    const movieChar = new MovieCharacterService();
-    movieChar.onSideChoosen({name: this.itemCharacter.name, side: this.itemCharacter.side});
+    // const movieChar = new MovieCharacterService();
+    // console.log({name: this.itemCharacter.name, side: this.itemCharacter.side});
+    this.movieChar.onSideChoosen({name: this.itemCharacter.name, side: side});
   }
 }

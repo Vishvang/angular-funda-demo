@@ -9,8 +9,11 @@ import { MovieCharacterService } from '../movie-character.service';
 export class TabsComponent implements OnInit {
   allCharacter = [];
   choosenList = 'all';
+  movieChar: MovieCharacterService;
 
-  constructor() { }
+  constructor(movieCharcter: MovieCharacterService) {
+    this.movieChar = movieCharcter;
+  }
 
   ngOnInit() {
   }
@@ -20,8 +23,8 @@ export class TabsComponent implements OnInit {
   }
 
   getCharacters() {
-    const movieChar = new MovieCharacterService();
-    this.allCharacter = movieChar.getCharacters(this.choosenList);
+    // const movieChar = new MovieCharacterService();
+    this.allCharacter = this.movieChar.getCharacters(this.choosenList);
     return this.allCharacter;
   }
 }
