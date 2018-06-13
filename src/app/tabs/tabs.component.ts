@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieCharacterService } from '../movie-character.service';
 
 @Component({
   selector: 'app-tabs',
@@ -7,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabsComponent implements OnInit {
   allCharacter = [];
-
   choosenList = 'all';
 
   constructor() { }
@@ -19,12 +19,9 @@ export class TabsComponent implements OnInit {
     this.choosenList = selectSide;
   }
 
-  getCharacters() {}
-
-  onSideChoosen(charInfo) {
-    const pos = this.allCharacter.findIndex((char) => {
-      return char.name === charInfo.name;
-    });
-    this.allCharacter[pos].side = charInfo.side;
+  getCharacters() {
+    const movieChar = new MovieCharacterService();
+    this.allCharacter = movieChar.getCharacters(this.choosenList);
+    return this.allCharacter;
   }
 }
