@@ -1,9 +1,20 @@
+import { LogService } from './log.service';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class MovieCharacterService {
 
   private allCharacter = [
     { name: 'David', side: ''},
     { name: 'Mac', side: ''}
   ];
+  log: LogService;
+
+  constructor(logService: LogService) {
+    this.log = logService;
+  }
 
   getCharacters(choosenList) {
     if (choosenList === 'all') {
@@ -19,5 +30,6 @@ export class MovieCharacterService {
       return char.name === charInfo.name;
     });
     this.allCharacter[pos].side = charInfo.side;
+    this.log.writeLog('Change side of ' + charInfo.name + ', new side: ' + charInfo.side);
   }
 }

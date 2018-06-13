@@ -6,6 +6,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import { MovieCharacterService } from './movie-character.service';
+import { LogService } from './log.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { MovieCharacterService } from './movie-character.service';
   imports: [
     BrowserModule
   ],
-  providers: [MovieCharacterService],
+  providers: [MovieCharacterService, LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
