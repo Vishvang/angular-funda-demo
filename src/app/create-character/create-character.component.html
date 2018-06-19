@@ -1,0 +1,17 @@
+<form>
+  <div class="row">
+    <div class="col-md-8 form-group">
+        <label for="name">Charcter Name</label>
+        <input type="text" id="name" name="name" class="form-control">
+    </div>
+    <div class="col-md-4 form-group">
+        <label for="side">Choose Side</label>
+        <select id="side" name="side" class="form-control">
+          <option *ngFor="let side of availableSides" [value]="side.value">
+            {{ side.display }}
+          </option>
+        </select>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Add Character</button>
+</form>
