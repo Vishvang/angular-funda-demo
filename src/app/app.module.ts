@@ -14,7 +14,10 @@ import { HeaderComponent } from './header/header.component';
 
 const routes = [
   { path: '', component: TabsComponent },
-  { path: 'new-character', component: CreateCharacterComponent }
+  { path: 'new-character', component: CreateCharacterComponent },
+  { path: '**', redirectTo: '/'}
+  // { path: '**', component: TabsComponent}
+  // ** means wild cart - catch any routes, order is impo here. It must be last after handling our all specific routes in this array.
 ];
 
 @NgModule({
