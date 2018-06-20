@@ -1,4 +1,8 @@
 <ul class="nav nav-pills">
-  <li role="presentation"><a href="#">Movie's Character</a></li>
-  <li role="presentation"><a href="#">New Character</a></li>
+  <li role="presentation"
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{exact: true}">
+    <a [routerLink]="'/'">Movie's Character</a></li>
+  <li role="presentation" [routerLinkActive]="'active'">
+    <a routerLink="/new-character" >New Character</a></li>
 </ul>
