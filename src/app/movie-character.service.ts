@@ -34,6 +34,15 @@ export class MovieCharacterService {
   }
 
   addNewCharacter(name, side) {
+    // find pos if any character with the same name already exist
+    const pos = this.allCharacter.findIndex( (char) => {
+      return char.name === name;
+    });
+
+    if (pos !== -1) {
+      return;
+    }
+
     const newChar = {name: name, side: side};
     this.allCharacter.push(newChar);
   }

@@ -24,8 +24,11 @@ export class CreateCharacterComponent implements OnInit {
   }
 
   onSubmit(form) {
-    console.log(form);
-    console.log(form.value);
+    console.log(form.invalid);
+    if (form.invalid) { return; }
+
+    console.log(form);     // Will print form object return by angular
+    console.log(form.value);  // Will show all forms value.
     this.movieCharacterSer.addNewCharacter(form.value.name, form.value.side);
   }
 }
