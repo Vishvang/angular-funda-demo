@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieCharacterService } from '../movie-character.service';
 
 @Component({
   selector: 'app-create-character',
@@ -13,12 +14,18 @@ export class CreateCharacterComponent implements OnInit {
     {display: 'Dark', value: 'dark'}
   ];
 
-  constructor() { }
+  movieCharacterSer: MovieCharacterService;
+
+  constructor(movieChar: MovieCharacterService) {
+    this.movieCharacterSer = movieChar;
+  }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-    console.log('Submitted');
+  onSubmit(form) {
+    console.log(form);
+    console.log(form.value);
+    this.movieCharacterSer.addNewCharacter(form.value.name, form.value.side);
   }
 }

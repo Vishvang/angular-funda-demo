@@ -32,4 +32,9 @@ export class MovieCharacterService {
     this.allCharacter[pos].side = charInfo.side;
     this.log.writeLog('Change side of ' + charInfo.name + ', new side: ' + charInfo.side);
   }
+
+  addNewCharacter(name, side) {
+    const newChar = {name: name, side: side};
+    this.allCharacter.push(newChar);
+  }
 }
