@@ -13,10 +13,13 @@ import { CreateCharacterComponent } from './create-character/create-character.co
 import { HeaderComponent } from './header/header.component';
 
 const routes = [
-  { path: '', component: TabsComponent },
+  { path: 'characters', component: TabsComponent, children: [
+    { path: '', redirectTo: 'all', pathMatch: 'full' },
+    { path: ':side', component: ListComponent }
+  ]},
   { path: 'new-character', component: CreateCharacterComponent },
-  { path: '**', redirectTo: '/'}
-  // { path: '**', component: TabsComponent}
+  { path: '**', redirectTo: 'characters'}
+  // { path: '**', compo 'all'nent: TabsComponent}
   // ** means wild cart - catch any routes, order is impo here. It must be last after handling our all specific routes in this array.
 ];
 
