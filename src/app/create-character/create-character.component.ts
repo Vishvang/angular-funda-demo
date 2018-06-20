@@ -18,4 +18,7 @@ export class CreateCharacterComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {
+    console.log('Submitted');
+  }
 }
