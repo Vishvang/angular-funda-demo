@@ -7,24 +7,24 @@ import { MovieCharacterService } from '../movie-character.service';
   styleUrls: ['./tabs.component.css']
 })
 export class TabsComponent implements OnInit {
-  allCharacter = [];
-  choosenList = 'all';
-  movieChar: MovieCharacterService;
+  // allCharacter = [];
+  // choosenList = 'all';
+  // movieChar: MovieCharacterService;
 
   constructor(movieCharcter: MovieCharacterService) {
-    this.movieChar = movieCharcter;
+    // this.movieChar = movieCharcter;
   }
 
   ngOnInit() {
   }
 
-  onChoose(selectSide) {
-    this.choosenList = selectSide;
-  }
+  // onChoose(selectSide) {
+  //   this.choosenList = selectSide;
+  // }
 
-  getCharacters() {
-    // const movieChar = new MovieCharacterService();
-    this.allCharacter = this.movieChar.getCharacters(this.choosenList);
-    return this.allCharacter;
-  }
+  // getCharacters() {
+  //   // const movieChar = new MovieCharacterService();
+  //   this.allCharacter = this.movieChar.getCharacters(this.choosenList);
+  //   return this.allCharacter;
+  // }
 }
